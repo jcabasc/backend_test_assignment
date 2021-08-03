@@ -23,4 +23,8 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'database_cleaner-active_record', '2.0.1'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
