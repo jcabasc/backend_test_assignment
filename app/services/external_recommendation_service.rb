@@ -14,7 +14,10 @@ class ExternalRecommendationService
   end
 
   def call
-    JSON.parse(Net::HTTP.get(uri))
+    response = JSON.parse(Net::HTTP.get(uri))
+    response.each_with_object(Hash.new(0)) do |element, hash|
+      hash[element['car_id']] = element['rank_score']
+    end.sort_by { |k, v| -v }.to_h
   end
 
   private
