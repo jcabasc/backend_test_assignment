@@ -13,6 +13,7 @@ gem 'rails', '~> 6.1.3', '>= 6.1.3.2'
 gem 'redis', '~> 4.0'
 gem 'rubocop-rails', require: false
 gem 'rubocop-rspec', require: false
+gem 'will_paginate', '~> 3.1.0'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

@@ -5,7 +5,7 @@ module Api
     def index
       service = CarRecommendationService.new(user_id_param, query_params)
 
-      render json: service.call,
+      render json: service.call.paginate(page: params[:page], per_page: 20),
              user: service.user,
              preferred_brand_ids: service.user.preferred_brand_ids,
              external_cars_recommended: service.external_cars_recommended,

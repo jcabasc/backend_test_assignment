@@ -9,7 +9,6 @@ module UserFilters
       filtered_scope = scope
                         .where(id: collection_ids)
                         .order_as_specified(id: collection_ids)
-                        .limit(20)
       context.scope = filtered_scope
     end
   end
