@@ -8,8 +8,7 @@ module Api
       render json: service.call.paginate(page: params[:page], per_page: 20),
              user: service.user,
              preferred_brand_ids: service.user.preferred_brand_ids,
-             external_cars_recommended: service.external_cars_recommended,
-             adapter: :json
+             external_cars_recommended: service.external_cars_recommended
     end
 
     private
