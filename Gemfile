@@ -5,6 +5,7 @@ ruby '2.7.2'
 
 gem 'active_model_serializers', '0.10.12'
 gem 'bootsnap', '>= 1.4.4', require: false
+gem 'interactor-rails', '~> 2.0'
 gem 'order_as_specified'
 gem 'pg', '~> 1.1'
 gem 'puma', '~> 5.0'

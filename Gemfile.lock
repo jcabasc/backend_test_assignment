@@ -91,6 +91,10 @@ GEM
       activesupport (>= 4.2.0)
     i18n (1.8.10)
       concurrent-ruby (~> 1.0)
+    interactor (3.1.2)
+    interactor-rails (2.2.1)
+      interactor (~> 3.0)
+      rails (>= 4.2)
     jsonapi-renderer (0.2.2)
     listen (3.5.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
@@ -221,6 +225,7 @@ DEPENDENCIES
   byebug
   database_cleaner-active_record (= 2.0.1)
   factory_bot_rails (~> 5.1.0)
+  interactor-rails (~> 2.0)
   listen (~> 3.3)
   order_as_specified
   pg (~> 1.1)
