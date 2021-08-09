@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UserFilters::PerfectMatchCars do
   describe '#call' do
-    subject(:context) { described_class.call(scope: Car.joins(:brand), user: user, collection_ids: []) }
+    subject(:context) { described_class.call(scope: Car.joins(:brand), user: user, collection_ids: [], external_cars_recommended: {}) }
 
     context 'without filters' do
       let(:user) { create(:user, preferred_price_range: 55_000...70_000) }

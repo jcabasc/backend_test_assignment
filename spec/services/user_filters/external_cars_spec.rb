@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe UserFilters::ExternalCars do
   describe '#call' do
-    subject(:context) { described_class.call(scope: Car.joins(:brand), user: user, collection_ids: collection_ids) }
+    subject(:context) { described_class.call(scope: Car.joins(:brand), user: user, collection_ids: collection_ids, external_cars_recommended: { external_car.id => 0.871 }) }
 
     context 'without filters' do
       let(:user) { create(:user, preferred_price_range: 55_000...70_000) }
@@ -15,10 +15,6 @@ RSpec.describe UserFilters::ExternalCars do
       let(:preferred_brand_car) { create(:car, brand_id: brand.id, model: 'Jetta', price: 35_000) }
       let!(:external_car) { create(:car, brand_id: brand2.id, model: 'XC60', price: 99_000) }
       let(:collection_ids) { [perfect_match_car.id, preferred_brand_car.id] }
-
-      before do
-        allow(ExternalRecommendationService).to receive(:call).and_return({ external_car.id => 0.871 })
-      end
 
       it "succeeds" do
         expect(context).to be_a_success

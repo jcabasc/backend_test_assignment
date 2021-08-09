@@ -3,8 +3,8 @@
 require 'rails_helper'
 
 RSpec.describe CarRecommendationService do
-  describe '#call' do
-    subject { described_class.call(user.id, filters) }
+  describe '.call' do
+    subject { described_class.new(user.id, filters).call }
 
     context 'without filters' do
       let(:user) { create(:user, preferred_price_range: 18_000...45_000) }
