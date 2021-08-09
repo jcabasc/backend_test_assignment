@@ -324,3 +324,103 @@ If you add `"query": "Volks"` parameter to the request then only cars with a bra
 # Notes
 
 You can use any gems and make any changes in the repo.
+
+
+
+# Solution
+===================
+
+Rails API application.
+
+Developed by: `Jonathan Cabas Candama`
+
+# Requirements
+
+* Ruby 2.7.2
+* Rails 6.1.3
+* Postgres
+
+# Setting up Database
+
+Run the following to setup rails db and populate it immediately
+
+`$ rails db:setup`
+`$ rails db:migrate`
+`$ rails db:seed`
+
+# Getting Started
+
+Before starting to run the application make sure Postgres is up and running
+
+The following command will start the server
+
+``
+  $ rails s
+``
+
+# Testing
+
+The testing framework that was used is `RSpec`
+
+Run the following command to run the test suite:
+
+``
+  $ rspec spec
+``
+
+# Endpoints Documentation
+
+### Car recommendations list
+
+```sh
+
+    GET http://localhost:4001/api/car_recommendations
+    Headers: 'Content-Type: application/json'
+    Request body:
+    {
+      "user_id": 1, #Required
+      "page": 1, #optional
+      "query": "alfa", #optional
+      "price_min": "35000", #optional
+      "price_max": "40000" #optional
+    }
+
+    Response status: 200 OK
+    Response body:
+    [
+      {
+          "id": 5,
+          "price": 39938,
+          "rank_score": null,
+          "model": "Arna",
+          "label": "perfect_match",
+          "brand": {
+              "id": 2,
+              "name": "Alfa Romeo"
+          }
+      },
+      ...
+    ]
+```
+
+### Car recommendations list without user_id
+
+```sh
+
+    GET http://localhost:4001/api/car_recommendations
+    Headers: 'Content-Type: application/json'
+    Request body:
+    {}
+
+    Response status: 400 Bad Request
+    Response body:
+      {
+          "errors": [
+              {
+                  "code": "BAD_REQUEST",
+                  "status": 400,
+                  "detail": "param is missing or the value is empty: user_id ..."
+              }
+          ]
+      }
+```
