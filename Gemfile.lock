@@ -66,6 +66,7 @@ GEM
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
     ast (2.4.2)
+    awesome_print (1.9.2)
     bootsnap (1.7.5)
       msgpack (~> 1.0)
     builder (3.2.4)
@@ -109,6 +110,8 @@ GEM
     nokogiri (1.11.7)
       mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
+    order_as_specified (1.7)
+      activerecord (>= 5.0.0)
     parallel (1.20.1)
     parser (3.0.2.0)
       ast (~> 2.4.1)
@@ -189,6 +192,8 @@ GEM
       rubocop (~> 1.0)
       rubocop-ast (>= 1.1.0)
     ruby-progressbar (1.11.0)
+    shoulda-matchers (4.1.2)
+      activesupport (>= 4.2.0)
     spring (2.1.1)
     sprockets (4.0.2)
       concurrent-ruby (~> 1.0)
@@ -211,11 +216,13 @@ PLATFORMS
 
 DEPENDENCIES
   active_model_serializers (= 0.10.12)
+  awesome_print (~> 1.8)
   bootsnap (>= 1.4.4)
   byebug
   database_cleaner-active_record (= 2.0.1)
   factory_bot_rails (~> 5.1.0)
   listen (~> 3.3)
+  order_as_specified
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 6.1.3, >= 6.1.3.2)
@@ -223,6 +230,7 @@ DEPENDENCIES
   rspec-rails (~> 4.0.1)
   rubocop-rails
   rubocop-rspec
+  shoulda-matchers (~> 4.1.0)
   spring
   tzinfo-data
 
