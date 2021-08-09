@@ -18,5 +18,4 @@ class CarSerializer < ActiveModel::Serializer # :nodoc:
       :good_match
     end
   end
-
 end

@@ -9,23 +9,20 @@ RSpec.describe 'CarRecommendations', type: :request do
 
       allow(ExternalRecommendationService).to receive(:call).and_return({ car.id.to_s => 0.871 })
     end
+
     let(:user) { create(:user) }
     let(:brand) { create(:brand, name: 'Volkswagen') }
     let(:car) { create(:car, brand_id: brand.id, model: 'Amarok', price: 59_000) }
-
     let(:expected_response) do
       {
-        'cars'=>[
+        'cars' => [
           {
-            'id'=>car.id,
-            'price'=>car.price,
-            'rank_score'=>nil,
-            'model'=>car.model,
-            'label'=>'good_match',
-            'brand'=>{
-              'id'=> brand.id,
-              'name'=>brand.name
-            }
+            'id' => car.id,
+            'price' => car.price,
+            'rank_score' => nil,
+            'model' => car.model,
+            'label' => 'good_match',
+            'brand' => { 'id' => brand.id, 'name' => brand.name }
           }
         ]
       }

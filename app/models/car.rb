@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Car < ApplicationRecord
   extend OrderAsSpecified
   belongs_to :brand

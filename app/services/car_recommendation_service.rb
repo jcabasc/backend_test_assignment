@@ -11,7 +11,12 @@ class CarRecommendationService
   end
 
   def call
-    context = UserFiltersService.call(scope: scope, user: user, collection_ids: [], external_cars_recommended: external_cars_recommended)
+    context = UserFiltersService.call(
+      scope: scope,
+      user: user,
+      collection_ids: [],
+      external_cars_recommended: external_cars_recommended
+    )
     ParamsFilterQuery.call(context.scope, filters)
   end
 end

@@ -9,6 +9,7 @@ RSpec.describe CarRecommendationService do
     context 'without filters' do
       let(:user) { create(:user, preferred_price_range: 18_000...45_000) }
       let(:filters) { {} }
+
       before do
         setup_data_for(user)
       end
@@ -21,7 +22,8 @@ RSpec.describe CarRecommendationService do
 
     context 'with filters' do
       let(:user) { create(:user, preferred_price_range: 18_000...89_000) }
-      let(:filters) { { price_min: 85_000, query: 'Chevrolet'} }
+      let(:filters) { { price_min: 85_000, query: 'Chevrolet' } }
+
       before do
         setup_data_for(user)
         brand = create(:brand, name: 'Chevrolet')

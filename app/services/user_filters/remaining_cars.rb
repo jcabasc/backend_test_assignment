@@ -6,11 +6,11 @@ module UserFilters
     delegate :scope, :collection_ids, to: :context
 
     def call
-      ids = scope
-              .where
-              .not(id: collection_ids)
-              .order(:price)
-              .pluck(:id)
+      ids = scope.
+        where.
+        not(id: collection_ids).
+        order(:price).
+        pluck(:id)
 
       context.collection_ids += ids
     end

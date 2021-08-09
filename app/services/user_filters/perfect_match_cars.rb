@@ -6,10 +6,10 @@ module UserFilters
     delegate :scope, :user, to: :context
 
     def call
-      ids = scope
-              .preferred_brands(preferred_brand_names)
-              .preferred_prices(user.preferred_price_range)
-              .pluck(:id)
+      ids = scope.
+        preferred_brands(preferred_brand_names).
+        preferred_prices(user.preferred_price_range).
+        pluck(:id)
 
       context.collection_ids += ids
     end
@@ -17,7 +17,7 @@ module UserFilters
     private
 
     def preferred_brand_names
-      user.preferred_brands.map{ |brand| brand.name.downcase }
+      user.preferred_brands.map { |brand| brand.name.downcase }
     end
   end
 end

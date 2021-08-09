@@ -9,7 +9,7 @@ RSpec.describe ExternalRecommendationService do
       "[\n  { \"car_id\": 179, \"rank_score\": 0.945 },\n  { \"car_id\": 5, \"rank_score\": 0.4552 },\n  { \"car_id\": 13, \"rank_score\": 0.99 }\n]\n"
     end
 
-    context 'success' do
+    context 'when success' do
       before do
         allow(Net::HTTP).to receive(:get).and_return(expected_response)
       end
