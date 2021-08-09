@@ -2,6 +2,7 @@
 
 module Api
   class CarRecommendationsController < ApplicationController
+    include ErrorResponse
     def index
       service = CarRecommendationService.new(user_id_param, query_params)
 
